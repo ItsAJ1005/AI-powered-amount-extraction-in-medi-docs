@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Container, Row, Col, Alert } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import AmountDetectForm from './components/AmountDetectForm';
+import ResultsDisplay from './components/ResultsDisplay';
 
 function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,12 +42,10 @@ function App() {
             error={error}
           />
           
-          {result && (
-            <div className="mt-4 p-3 border rounded">
-              <h3>Results:</h3>
-              <pre>{JSON.stringify(result, null, 2)}</pre>
-            </div>
-          )}
+          <ResultsDisplay 
+            result={result}
+            error={error}
+          />
         </Col>
       </Row>
     </Container>
