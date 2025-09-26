@@ -10,7 +10,9 @@
     "test:watch": "jest --watch",
     "test:unit": "jest tests/unit --coverage",
     "test:integration": "jest tests/integration --coverage",
+    "test:acceptance": "jest tests/acceptance --coverage",
     "test:api": "jest tests/api.test.js --coverage",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:api && npm run test:acceptance",
     "test:ci": "jest --ci --coverage --maxWorkers=2",
     "test:update": "jest --updateSnapshot"
   },
