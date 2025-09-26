@@ -1,24 +1,55 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Container, Row, Col, Alert } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import AmountDetectForm from './components/AmountDetectForm';
 
 function App() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
+  const [result, setResult] = useState(null);
+
+  const handleParseSubmit = async (formData) => {
+    setIsSubmitting(true);
+    setError(null);
+    
+    try {
+      const response = await axios.post('http://localhost:3000/api/parse', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      setResult(response.data);
+    } catch (err) {
+      setError(err.response?.data?.message || 'Failed to process document');
+      console.error('Parsing failed:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="my-5">
+      <h1 className="text-center mb-5">Medical Bill Parser</h1>
+      
+      <Row className="justify-content-center">
+        <Col md={8}>
+          <AmountDetectForm 
+            onSubmit={handleParseSubmit}
+            isSubmitting={isSubmitting}
+            error={error}
+          />
+          
+          {result && (
+            <div className="mt-4 p-3 border rounded">
+              <h3>Results:</h3>
+              <pre>{JSON.stringify(result, null, 2)}</pre>
+            </div>
+          )}
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
