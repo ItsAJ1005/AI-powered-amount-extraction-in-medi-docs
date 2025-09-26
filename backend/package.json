@@ -7,7 +7,12 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:unit": "jest tests/unit --coverage",
+    "test:integration": "jest tests/integration --coverage",
+    "test:api": "jest tests/api.test.js --coverage",
+    "test:ci": "jest --ci --coverage --maxWorkers=2",
+    "test:update": "jest --updateSnapshot"
   },
   "keywords": [
     "ocr",
