@@ -2,6 +2,8 @@
 
 A sophisticated document processing system that uses AI and OCR to extract financial amounts from medical documents and invoices. The system combines multiple extraction strategies including LLM processing, regex patterns, and fallback mechanisms to ensure high accuracy.
 
+You can access the Swagger UI at http://localhost:3000/api-docs to see the documentation.
+
 ## 🚀 Features
 
 - **Multi-Modal Extraction**: Combines LLM (Gemini) processing with regex fallback
