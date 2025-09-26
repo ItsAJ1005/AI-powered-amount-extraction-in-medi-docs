@@ -2,7 +2,12 @@
 
 A sophisticated document processing system that uses AI and OCR to extract financial amounts from medical documents and invoices. The system combines multiple extraction strategies including LLM processing, regex patterns, and fallback mechanisms to ensure high accuracy.
 
-You can access the Swagger UI at http://localhost:3000/api-docs to see the documentation.
+You can access and test API routes using the Swagger UI at 
+https://ai-powered-amount-extraction-in-medi-docs.onrender.com/api-docs/  
+(Live API deployed)
+
+http://localhost:3000/api-docs  (local development)
+to see the documentation.
 
 ## 🚀 Features
 
