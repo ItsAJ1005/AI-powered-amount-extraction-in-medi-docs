@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const apiRoutes = require('./api');
 
-// API routes
-router.use('/api', apiRoutes);
+// Mount API routes at root since they're already prefixed with /api in app.js
+router.use('/', apiRoutes);
 
 // Legacy endpoint (for backward compatibility)
 router.post('/process', (req, res) => {

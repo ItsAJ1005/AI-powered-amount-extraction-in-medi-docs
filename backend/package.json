@@ -6,15 +6,10 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "test:unit": "jest tests/unit --coverage",
-    "test:integration": "jest tests/integration --coverage",
-    "test:acceptance": "jest tests/acceptance --coverage",
-    "test:api": "jest tests/api.test.js --coverage",
-    "test:all": "npm run test:unit && npm run test:integration && npm run test:api && npm run test:acceptance",
-    "test:ci": "jest --ci --coverage --maxWorkers=2",
-    "test:update": "jest --updateSnapshot"
+    "docs:generate": "node -e \"console.log('Documentation will be available at http://localhost:3000/api-docs when the server is running')\"",
+    "docs:serve": "node src/index.js",
+    "lint": "eslint . --ext .js",
+    "test": "jest"
   },
   "keywords": [
     "ocr",
@@ -24,18 +19,20 @@
   "author": "AJ Harsh Vardhan",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "express-validator": "^7.2.1",
     "multer": "^2.0.2",
-    "sharp": "^0.32.0",
-    "tesseract.js": "^4.1.1",
+    "sharp": "^0.32.6",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "tesseract.js": "^4.1.4",
     "uuid": "^13.0.0"
   },
   "devDependencies": {
-    "jest": "^29.5.0",
-    "nodemon": "^2.0.22",
-    "supertest": "^6.3.3"
+    "nodemon": "^2.0.22"
   },
   "engines": {
     "node": ">=18.0.0"
