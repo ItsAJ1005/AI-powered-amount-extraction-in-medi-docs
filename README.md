@@ -2,6 +2,8 @@
 
 A sophisticated document processing system that uses AI and OCR to extract financial amounts from medical documents and invoices. The system combines multiple extraction strategies including LLM processing, regex patterns, and fallback mechanisms to ensure high accuracy.
 
+**Video showing demo of api endpoints:** https://drive.google.com/file/d/1iOxblNLLriSwdP66iAkR8vNQVmD0upM6/view?usp=drivesdk
+ 
 You can access and test API routes using the Swagger UI at 
 https://ai-powered-amount-extraction-in-medi-docs.onrender.com/api-docs/  
 (Live API deployed)
@@ -20,6 +22,9 @@ to see the documentation.
 - **Real-time Processing**: Fast document processing with detailed logging
 
 ## 🏗️ Architecture
+
+![Architectural Diagram](https://github.com/ItsAJ1005/AI-powered-amount-extraction-in-medi-docs/blob/main/AI%20powered%20amount%20extraction%20architectural%20diagram.jpg?raw=true)
+
 
 ### Backend Services
 
